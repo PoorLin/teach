@@ -13,9 +13,9 @@ public class Orders {
 
     private Date createDate;
 
-    private Integer userId;
+
     @ManyToOne
-    @JoinColumn(name = "userId")
+    @JoinColumn(name = "userId",insertable = true)
     private Users users;
 
     public Integer getOrderId() {
@@ -42,13 +42,7 @@ public class Orders {
         this.createDate = createDate;
     }
 
-    public Integer getUserId() {
-        return userId;
-    }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
 
     public Users getUsers() {
         return users;
@@ -56,5 +50,15 @@ public class Orders {
 
     public void setUsers(Users users) {
         this.users = users;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Orders{" +
+                "createDate=" + createDate +
+                ", price=" + price +
+                ", orderId=" + orderId +
+                '}';
     }
 }

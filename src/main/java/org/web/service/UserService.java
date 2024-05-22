@@ -17,6 +17,7 @@ public class UserService {
     }
 
     public Result createUser(Users users){
+        System.out.println(users);
         userDao.save(users);
         return new Result(200,"success");
     }

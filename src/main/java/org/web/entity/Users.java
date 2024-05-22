@@ -3,6 +3,7 @@ package org.web.entity;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Users {
@@ -14,8 +15,8 @@ public class Users {
 
     private String secret;
 
-    @OneToMany(mappedBy = "users")
-    private ArrayList<Orders> ordersArrayList;
+    @OneToMany(mappedBy = "users",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    private List<Orders> ordersArrayList;
 
 
     public Integer getUserId() {
@@ -42,11 +43,22 @@ public class Users {
         this.secret = secret;
     }
 
-    public ArrayList<Orders> getOrdersArrayList() {
+
+    public List<Orders> getOrdersArrayList() {
         return ordersArrayList;
     }
 
-    public void setOrdersArrayList(ArrayList<Orders> ordersArrayList) {
+    public void setOrdersArrayList(List<Orders> ordersArrayList) {
         this.ordersArrayList = ordersArrayList;
+    }
+
+    @Override
+    public String toString() {
+        return "Users{" +
+                "userId=" + userId +
+                ", mail='" + mail + '\'' +
+                ", secret='" + secret + '\'' +
+                ", ordersArrayList=" + ordersArrayList +
+                '}';
     }
 }
