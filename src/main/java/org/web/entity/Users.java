@@ -13,6 +13,8 @@ public class Users {
 
     private String mail ;
 
+    private String secret;
+
 
     public Integer getUserId() {
         return userId;
@@ -28,5 +30,13 @@ public class Users {
 
     public void setMail(String mail) {
         this.mail = mail;
+    }
+
+    public String getSecret() {
+        return secret;
+    }
+
+    public void setSecret(String secret) {
+        this.secret = secret;
     }
 }

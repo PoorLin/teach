@@ -2,6 +2,7 @@ package org.web.controller;
 
 import org.springframework.web.bind.annotation.*;
 import org.web.dto.Result;
+import org.web.entity.Users;
 import org.web.service.UserService;
 
 @RestController
@@ -12,7 +13,6 @@ public class UserController {
 
     public UserController(UserService userService){
         System.out.println(456);
-
         this.userService=userService;
     }
 
@@ -30,10 +30,25 @@ public class UserController {
 
 
     @PostMapping("/createUser")
-    public Result createUser(){
-        System.out.println(456);
-        return new Result();
+    public Result createUser(@RequestBody Users users){
+        return userService.createUser(users);
     }
+
+    @PutMapping("/updateUser")
+    public Result updateUser(){
+        return userService.updateUser();
+    }
+    @DeleteMapping("/deleteUser")
+    public Result deleteUser(){
+        return userService.deleteUser();
+    }
+
+    @GetMapping("/getUser/{id}")
+    public Result getUser(@PathVariable Integer id){
+        return userService.getUser(id);
+    }
+
+
 
 
 
