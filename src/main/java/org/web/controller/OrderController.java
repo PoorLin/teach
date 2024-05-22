@@ -9,10 +9,9 @@ import org.web.dto.Result;
 @RequestMapping("/order")
 public class OrderController {
 
-    @GetMapping
+    @GetMapping("/test")
     public Result test(){
-
-
+        return new Result<>();
             }
 
 

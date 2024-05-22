@@ -7,7 +7,7 @@ import jakarta.persistence.Id;
 
 import java.util.Date;
 @Entity
-public class Order {
+public class Orders {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer orderId;
