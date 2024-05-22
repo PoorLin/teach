@@ -17,10 +17,9 @@ public class UserController {
     }
 
 
-    @GetMapping("/test")
-    public Result test(){
-        System.out.println(123);
-        return new Result(200,"success");
+    @PostMapping("/test")
+    public Result test(@RequestBody Users users){
+        return userService.test(users);
     }
     @PostMapping("/test")
     public Result test2(){

@@ -15,8 +15,6 @@ public class Users {
 
     private String secret;
 
-    @OneToMany(mappedBy = "users",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    private List<Orders> ordersArrayList;
 
 
     public Integer getUserId() {
@@ -44,21 +42,4 @@ public class Users {
     }
 
 
-    public List<Orders> getOrdersArrayList() {
-        return ordersArrayList;
-    }
-
-    public void setOrdersArrayList(List<Orders> ordersArrayList) {
-        this.ordersArrayList = ordersArrayList;
-    }
-
-    @Override
-    public String toString() {
-        return "Users{" +
-                "userId=" + userId +
-                ", mail='" + mail + '\'' +
-                ", secret='" + secret + '\'' +
-                ", ordersArrayList=" + ordersArrayList +
-                '}';
-    }
 }

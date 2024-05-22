@@ -14,9 +14,7 @@ public class Orders {
     private Date createDate;
 
 
-    @ManyToOne
-    @JoinColumn(name = "userId",insertable = true)
-    private Users users;
+
 
     public Integer getOrderId() {
         return orderId;
@@ -43,14 +41,6 @@ public class Orders {
     }
 
 
-
-    public Users getUsers() {
-        return users;
-    }
-
-    public void setUsers(Users users) {
-        this.users = users;
-    }
 
 
     @Override
