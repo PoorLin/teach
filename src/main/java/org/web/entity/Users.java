@@ -1,9 +1,8 @@
 package org.web.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
 
 @Entity
 public class Users {
@@ -14,6 +13,9 @@ public class Users {
     private String mail ;
 
     private String secret;
+
+    @OneToMany(mappedBy = "users")
+    private ArrayList<Orders> ordersArrayList;
 
 
     public Integer getUserId() {
@@ -38,5 +40,13 @@ public class Users {
 
     public void setSecret(String secret) {
         this.secret = secret;
+    }
+
+    public ArrayList<Orders> getOrdersArrayList() {
+        return ordersArrayList;
+    }
+
+    public void setOrdersArrayList(ArrayList<Orders> ordersArrayList) {
+        this.ordersArrayList = ordersArrayList;
     }
 }

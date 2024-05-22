@@ -1,9 +1,6 @@
 package org.web.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
 @Entity
@@ -17,6 +14,9 @@ public class Orders {
     private Date createDate;
 
     private Integer userId;
+    @ManyToOne
+    @JoinColumn(name = "userId")
+    private Users users;
 
     public Integer getOrderId() {
         return orderId;
@@ -48,5 +48,13 @@ public class Orders {
 
     public void setUserId(Integer userId) {
         this.userId = userId;
+    }
+
+    public Users getUsers() {
+        return users;
+    }
+
+    public void setUsers(Users users) {
+        this.users = users;
     }
 }
